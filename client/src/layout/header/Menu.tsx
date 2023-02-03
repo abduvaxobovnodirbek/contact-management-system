@@ -1,10 +1,8 @@
-import { DarkModeSwitch } from "react-toggle-dark-mode";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { headerMenu, headerMobileMenu } from "../../types/index";
-import LangSelector from "../../components/langSelector/LangSelector";
 import { FaUser } from "react-icons/fa";
 import { BiBookmarks, BiLogOut } from "react-icons/bi";
 import { GrUserAdmin } from "react-icons/gr";
@@ -118,8 +116,6 @@ export const renderMobileMenu = ({
   handleMobileMenuClose,
   handleProfileMenuOpen,
   user,
-  darkMode,
-  handleDarkMode,
 }: headerMobileMenu) => {
   return (
     <Menu
@@ -157,17 +153,7 @@ export const renderMobileMenu = ({
         </IconButton>
       </MenuItem>
 
-      <MenuItem>
-        <DarkModeSwitch
-          checked={darkMode}
-          className="mt-2 mx-3 w-100"
-          onChange={handleDarkMode}
-        />
-      </MenuItem>
-
-      <MenuItem>
-        <LangSelector />
-      </MenuItem>
+      
     </Menu>
   );
 };

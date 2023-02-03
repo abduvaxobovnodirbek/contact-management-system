@@ -1,3 +1,5 @@
+import { PostDetail, User } from "./api";
+
 export type windowSizeObject = {
   width: number;
   height: number;
@@ -17,6 +19,7 @@ export type ModalState = {
   showModal: boolean;
   showEmailLoginForm: boolean;
   showEmailRegisterForm: boolean;
+  showProfileModal: boolean;
 };
 
 export type Steps = {
@@ -44,8 +47,6 @@ export type headerMobileMenu = {
   user: any;
   handleMobileMenuClose: any;
   handleProfileMenuOpen: any;
-  darkMode: boolean;
-  handleDarkMode: () => void;
 };
 
 export type headerMenu = {
@@ -67,3 +68,38 @@ export interface TabPanelProps {
 export type TabTypes = {
   tabOptions: { names: string[] };
 };
+
+
+export interface ColumnProps {
+  handleDelete: (str: string) => void;
+  setShowEditForm: React.Dispatch<React.SetStateAction<boolean>>;
+  setPost: React.Dispatch<React.SetStateAction<PostDetail | undefined>>;
+  filterData: (data: PostDetail[]) => (formatter: any) =>
+    | {
+        text: any;
+        value: any;
+      }[]
+    | undefined;
+  posts: PostDetail[] | undefined;
+}
+
+export interface ColumnUserProps {
+  handleDelete: (str: string) => void;
+  handleStatus: (val: User) => void;
+  handleShowProfile: () => void;
+  setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
+  filterData: (data: User[]) => (formatter: any) =>
+    | {
+        text: any;
+        value: any;
+      }[]
+    | undefined;
+  users: User[] | undefined;
+}
+
+export interface panelProps {
+  users: User[] | undefined;
+  isLoading: boolean;
+  handleShowProfile: () => void;
+  setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
+}

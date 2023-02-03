@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
+import { adminControlApi } from "./services/api/admin";
 import { authApi } from "./services/api/auth";
 import { basketApi } from "./services/api/basket";
 import { postApi } from "./services/api/post";
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   [postApi.reducerPath]: postApi.reducer,
   [basketApi.reducerPath]: basketApi.reducer,
   [searchApi.reducerPath]: searchApi.reducer,
+  [adminControlApi.reducerPath]: adminControlApi.reducer,
 
   authModal,
   postSteps,
@@ -28,6 +30,7 @@ const store = configureStore({
       .concat(authApi.middleware)
       .concat(basketApi.middleware)
       .concat(searchApi.middleware)
+      .concat(adminControlApi.middleware)
       .concat(postApi.middleware),
 });
 

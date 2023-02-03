@@ -1,6 +1,5 @@
 import { useState, MouseEvent } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
 import Cookies from "universal-cookie";
 import Avatar from "@mui/material/Avatar";
 import AppBar from "@mui/material/AppBar";
@@ -10,7 +9,6 @@ import IconButton from "@mui/material/IconButton";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import useWindowSize from "../../hooks/useWindowSize";
 import logo from "../../assets/logo.png";
-import LangSelector from "../../components/langSelector/LangSelector";
 import { renderMenu, renderMobileMenu, menuId, mobileMenuId } from "./Menu";
 import AddContactBtn from "../../components/button/AddContactBtn";
 import Cloudinary from "../../components/cloudImage/Cloudinary";
@@ -61,8 +59,6 @@ export default function Header() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const handleDarkMode = () => {};
-
   const handleLogout = () => {
     cookie.remove("token");
     cookie.remove("role");
@@ -88,16 +84,6 @@ export default function Header() {
             <Box sx={{ flexGrow: 1 }} />
 
             <Box sx={{ display: { sm: "none", xs: "none", md: "flex" } }}>
-              <LangSelector />
-
-              <DarkModeSwitch
-                checked={false}
-                onChange={() => {
-                  console.log("");
-                }}
-                className="mt-2 mx-2"
-              />
-
               {isAuthenticated() && currentUser ? (
                 <AddContactBtn />
               ) : (
@@ -167,8 +153,6 @@ export default function Header() {
                 handleMobileMenuClose,
                 handleProfileMenuOpen,
                 user: currentUser as User,
-                darkMode: false,
-                handleDarkMode,
               })
             : ""}
 
