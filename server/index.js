@@ -10,6 +10,12 @@ dotenv.config({ path: "./env/.env" });
 
 connectToDatabase();
 
+const authRouter = require("./routes/auth");
+const userRoutes = require("./routes/user");
+const postRoutes = require("./routes/post");
+const searchRoutes = require("./routes/search");
+const errorHandler = require("./middlewares/error");
+
 const app = express();
 
 app.use(express.json({ limit: "50mb" }));
@@ -23,6 +29,13 @@ app.use(
     origin: ["http://localhost:3000"],
   })
 );
+
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/posts", postRoutes);
+app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/search", searchRoutes);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
