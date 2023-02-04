@@ -3,7 +3,7 @@ const colors = require("colors");
 const dotenv = require("dotenv");
 
 // Load env vars
-dotenv.config({ path: "./configs/config.env" });
+dotenv.config({ path: "./env/.env" });
 
 // Load models
 const User = require("./models/User");

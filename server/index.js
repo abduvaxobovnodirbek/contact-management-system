@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-app.use(cors());
+app.use(cors("*"));
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/posts", postRoutes);
