@@ -13,6 +13,8 @@ connectToDatabase();
 const authRouter = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const postRoutes = require("./routes/post");
+const categoryRouter = require("./routes/category");
+const contactRoutes = require("./routes/contact");
 const searchRoutes = require("./routes/search");
 const errorHandler = require("./middlewares/error");
 
@@ -32,7 +34,9 @@ app.use(
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/posts", postRoutes);
+app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/contacts", contactRoutes);
 app.use("/api/v1/search", searchRoutes);
 
 app.use(errorHandler);

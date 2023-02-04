@@ -3,6 +3,8 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { adminControlApi } from "./services/api/admin";
 import { authApi } from "./services/api/auth";
 import { basketApi } from "./services/api/basket";
+import { categoryApi } from "./services/api/category";
+import { contactApi } from "./services/api/contact";
 import { postApi } from "./services/api/post";
 import { searchApi } from "./services/api/search";
 import users from "./services/api/user";
@@ -15,6 +17,8 @@ const rootReducer = combineReducers({
   [basketApi.reducerPath]: basketApi.reducer,
   [searchApi.reducerPath]: searchApi.reducer,
   [adminControlApi.reducerPath]: adminControlApi.reducer,
+  [categoryApi.reducerPath]: categoryApi.reducer,
+  [contactApi.reducerPath]: contactApi.reducer,
 
   authModal,
   postSteps,
@@ -30,7 +34,9 @@ const store = configureStore({
       .concat(authApi.middleware)
       .concat(basketApi.middleware)
       .concat(searchApi.middleware)
+      .concat(contactApi.middleware)
       .concat(adminControlApi.middleware)
+      .concat(categoryApi.middleware)
       .concat(postApi.middleware),
 });
 

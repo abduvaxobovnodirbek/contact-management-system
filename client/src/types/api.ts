@@ -13,6 +13,12 @@ export interface User {
   phoneNumber?: number;
 }
 
+export interface Category {
+  _id: string;
+  name: string;
+  __v?: number;
+}
+
 export interface Auth {
   success: boolean;
   error?: string;
@@ -32,6 +38,20 @@ export interface PostDetail {
   key?: number;
 }
 
+export interface ContactDetail {
+  _id: string;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  user: User;
+  category: Category;
+  image: string[];
+  createdAt: Date;
+  updatedAt: Date;
+  __v: number;
+  key?: number;
+}
+
 export type FormValues = {
   post_name: string;
   tags: any[];
@@ -39,4 +59,11 @@ export type FormValues = {
   imageList: any[] | undefined;
   post_id?: string;
   userId?: string;
+};
+
+export type ContactFormValues = {
+  name: string;
+  email: any[];
+  phoneNumber: string;
+  image?: any[] | undefined;
 };

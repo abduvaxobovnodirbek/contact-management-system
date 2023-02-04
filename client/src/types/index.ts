@@ -1,4 +1,4 @@
-import { PostDetail, User } from "./api";
+import { ContactDetail, PostDetail, User } from "./api";
 
 export type windowSizeObject = {
   width: number;
@@ -69,7 +69,6 @@ export type TabTypes = {
   tabOptions: { names: string[] };
 };
 
-
 export interface ColumnProps {
   handleDelete: (str: string) => void;
   setShowEditForm: React.Dispatch<React.SetStateAction<boolean>>;
@@ -97,9 +96,25 @@ export interface ColumnUserProps {
   users: User[] | undefined;
 }
 
+export interface ColumnContactProps {
+  handleDelete: (str: string) => void;
+  filterData: (data: ContactDetail[]) => (formatter: any) =>
+    | {
+        text: any;
+        value: any;
+      }[]
+    | undefined;
+  users: ContactDetail[] | undefined;
+}
+
 export interface panelProps {
   users: User[] | undefined;
   isLoading: boolean;
   handleShowProfile: () => void;
   setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
+}
+
+export interface panelContactProps {
+  users: ContactDetail[] | undefined;
+  isLoading: boolean;
 }

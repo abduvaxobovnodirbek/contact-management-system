@@ -1,13 +1,19 @@
 import { BsPencilSquare } from "react-icons/bs";
 import { IconButton } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const NewReviewBtn = () => {
-  const handleClick = (): void => {};
+  const navigate = useNavigate();
+
+  const handleClick = (): void => {
+    navigate("/contact-create");
+
+  };
   return (
     <>
       <IconButton
         size="small"
-        aria-label="Write new review"
+        aria-label="Add  new contact"
         sx={{ color: "black" }}
         className=""
         onClick={handleClick}

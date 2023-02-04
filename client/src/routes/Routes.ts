@@ -1,5 +1,7 @@
 import AdminPanel from "../pages/admin/AdminPanel";
 import PostCreate from "../pages/admin/post/PostCreate";
+import ContactForm from "../pages/main/contact/ContactForm";
+import UsersAllContacts from "../pages/main/contact/UsersAllContacts";
 import Error from "../pages/main/Error";
 import Home from "../pages/main/home/Home";
 import Tags from "../pages/main/home/Tags";
@@ -33,6 +35,16 @@ const routes: routesType = [
   {
     path: "/profile",
     element: Profile,
+    protected: true,
+  },
+  {
+    path: "/contact-create",
+    element: ContactForm,
+    protected: true,
+  },
+  {
+    path: "/contact-list",
+    element:UsersAllContacts,
     protected: true,
   },
   {

@@ -1,4 +1,5 @@
 import TabPanel from "../../components/tabPanel/TabPanel";
+import AllCategories from "../../features/adminControl/categoryList/AllCategories";
 import AllPosts from "../../features/adminControl/postList/AllPosts";
 import AllUsers from "../../features/adminControl/usersList/AllUsers";
 import TabMenu from "../../features/home/tab/TabMenu";
@@ -9,7 +10,7 @@ const AdminPanel = () => {
     <ContextWrapper flexOptions={"justify-center"}>
       <TabMenu
         tabOptions={{
-          names: ["Users", "Post List"],
+          names: ["Users", "Post List","Category"],
         }}
       >
         <Panels />
@@ -26,6 +27,9 @@ const Panels = ({ value }: any) => {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <AllPosts />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <AllCategories />
       </TabPanel>
     </div>
   );
